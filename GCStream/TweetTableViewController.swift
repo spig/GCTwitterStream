@@ -84,7 +84,7 @@ class TweetTableViewController: UITableViewController, UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchText = searchBar.text
+        reload()
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -92,7 +92,16 @@ class TweetTableViewController: UITableViewController, UISearchBarDelegate {
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("text did change... \(searchText)")
+        if searchText.isEmpty { return }
+
+        print("cancel previous reload...")
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(reload), object: nil)
+        self.perform(#selector(reload), with: nil, afterDelay: 0.5)
+    }
+
+    func reload() {
+        print("reload")
+        searchText = searchBar?.text
     }
 
     /*
