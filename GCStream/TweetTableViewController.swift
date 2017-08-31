@@ -19,7 +19,7 @@ class TweetTableViewController: UITableViewController, UISearchBarDelegate {
     }
 
 //    private var tweets2 = [Array<TWTRTweet>]()
-    private var tweets = [[]]//[Array<Twitter.Tweet>]()
+    private var tweets = [Array<Twitter.Tweet>]()
 
     var searchText: String? {
         didSet {
