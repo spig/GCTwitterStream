@@ -8,7 +8,6 @@
 
 import UIKit
 import Twitter
-//import TwitterKit
 
 class TweetTableViewController: UITableViewController, UISearchBarDelegate {
 
@@ -18,7 +17,6 @@ class TweetTableViewController: UITableViewController, UISearchBarDelegate {
         }
     }
 
-//    private var tweets2 = [Array<TWTRTweet>]()
     private var tweets = [Array<Twitter.Tweet>]()
 
     var searchText: String? {
@@ -57,38 +55,10 @@ class TweetTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let key = ""
-//        let secret = ""
-//        Twitter.sharedInstance().start(withConsumerKey: key, consumerSecret: secret)
-//
-//        let client = TWTRAPIClient()
-//        let searchEndpoint = "https://api.twitter.com/1.1/search/tweets.json"
-//        let params = ["q": "#ldsconf"]
-//        var clientError: NSError?
-//        let request = client.urlRequest(withMethod: "GET", url: searchEndpoint, parameters: params, error: &clientError)
-//
-//        client.sendTwitterRequest(request) { response, data, connectionError -> Void in
-//            if connectionError != nil {
-//                print("Error: \(connectionError)")
-//            }
-//
-//            do {
-//                let json = try JSONSerialization.jsonObject(with: data!, options: [])
-//                print("json: \(json)")
-//            } catch let jsonError as NSError {
-//                print("json error: \(jsonError.localizedDescription)")
-//            }
-//        }
-
         searchText = "#ldsconf"
 
         tableView?.estimatedRowHeight = tableView?.rowHeight ?? 0
         tableView?.rowHeight = UITableViewAutomaticDimension
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
